@@ -49,7 +49,8 @@ INSERT INTO Acteur(id, nom , prenom , dateNaissance )
 			 			 
 INSERT INTO Acteur_Film(idActeur, idFilm , role ) 
       VALUES (99,2,"campeur"),
-	         (99,3,"faux handicape");			 
+	         (99,3,"faux handicape"),
+			 (1, 1, "gendarme");			 
 												
 # affichage des donnees pour verifier:
 SELECT * FROM Film;	
