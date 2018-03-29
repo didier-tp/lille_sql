@@ -13,10 +13,16 @@ import com.m2i.tp.entity.Departement;
  * implémentations possibles : DepartementDaoJdbc
  *                             DepartementDaoJpaHibernate
  *                             ....
- *
+ * avec throws RuntimeException implicites
  */
 public interface DepartementDAO {
 	public List<Departement> rechercherTousDepartements();
+	public List<Departement> departementsSelonRegion(int numRegion);
+	public Departement departementSelonNumero(String numDep);
 	
-
+	public void ajouterDepartement(Departement dep);
+	public void modifierDepartement(Departement dep);
+	public void supprimerDepartement(String numDep);
+	
+    //...
 }
