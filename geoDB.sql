@@ -38,7 +38,7 @@ show tables;
 
 INSERT INTO Region(num, nom , chef_lieu ) 
 VALUES (1, "Ile de France" , "Paris"),
-  (2, "Hauts de France" , "Lille" ),
+  (2, "Hauts-de-France" , "Lille" ),
   (3, 'Normandie',"Rouen");
 												
 INSERT INTO Departement(numero, nom , prefecture , population , superficie,  refRegion ) 
