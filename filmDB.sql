@@ -55,7 +55,15 @@ INSERT INTO Acteur_Film(idActeur, idFilm , role )
 # affichage des donnees pour verifier:
 SELECT * FROM Film;	
 SELECT * FROM Acteur;
-SELECT * FROM Acteur_Film;												
+SELECT * FROM Acteur_Film;	
+
+#Exemple de requete :
+SELECT titre as titre_film_2018 FROM Film WHERE dateSortie BETWEEN "2018-01-01" AND "2018-12-31";
+
+#Exemple de jointure :
+SELECT Acteur.nom , role , Film.titre FROM Acteur_Film 
+       JOIN Acteur ON Acteur_Film.idActeur = Acteur.id
+       JOIN Film ON Acteur_Film.idFilm = Film.id;	   
 
 
 
