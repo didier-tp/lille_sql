@@ -44,7 +44,7 @@ VALUES (1, "Ile de France" , "Paris"),
 INSERT INTO Departement(numero, nom , prefecture , population , superficie,  refRegion ) 
       VALUES ("59", "Nord" , "Lille" ,2577000, 5743 , 2),
              ("62", "Pas de calais" , "Arras", 1456000,6671 , 2),
-			 ("75", "Paris" , "Paris" ,2166200 ,105, 2),
+			 ("75", "Paris" , "Paris" ,2166200 ,105, 1),
 			 ("60", "Oise" , "Beauvais" ,780000,5860 , 2),
 			 ("80", "Somme" , "Amiens" ,555551 ,6170, 2),
 			 ("02", "Aisne" , "Laon" ,535489 ,7369, 2),
