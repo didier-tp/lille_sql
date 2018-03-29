@@ -48,7 +48,7 @@ INSERT INTO Departement(numero, nom , prefecture , population , superficie,  ref
 			 ("60", "Oise" , "Beauvais" ,780000,5860 , 2),
 			 ("80", "Somme" , "Amiens" ,555551 ,6170, 2),
 			 ("02", "Aisne" , "Laon" ,535489 ,7369, 2),
-			 ("92", "Hauts de Seine" , null,1517000, 176 , 1);
+			 ("92", "Hauts-de-Seine" , null,1517000, 176 , 1);
 			 
 			 
 # cette insertion devrait être refusée (region 99 existe pas):			 
