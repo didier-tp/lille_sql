@@ -68,7 +68,7 @@ INSERT INTO Departement(numero, nom , prefecture , population , superficie,  ref
 			 ("27", "Eure" , "Evreux" ,598347, 6040 , "FR-NOR"),
              ("76", "Seine-Maritime" , "Rouen", 1257920,6278 , "FR-NOR"),
 			 ("14", "Calvados" , "Caen" ,691670,5548 , "FR-NOR"),
-			 ("61", "Orne" , "Alençon" ,287750 ,6103, "FR-NOR"),
+			 ("61", "Orne" , "Alencon" ,287750 ,6103, "FR-NOR"),
 			 ("50", "Manche" , "Saint-Lo" ,499958 ,5938, "FR-NOR");
 			 
 			 
