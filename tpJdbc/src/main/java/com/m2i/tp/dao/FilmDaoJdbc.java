@@ -55,6 +55,7 @@ public class FilmDaoJdbc implements FilmDAO {
 		Connection cn = null;
 		try {
 			cn = this.etablirConnexion();
+			cn.setAutoCommit(false);//BEGIN TRANSACTION
 			//chaque ? correspond à un paramètre variable .
 			String reqSql = "INSERT INTO Film(titre, dateSortie) VALUES(?,?)";
 			PreparedStatement pst = cn.prepareStatement(reqSql);  
@@ -63,9 +64,12 @@ public class FilmDaoJdbc implements FilmDAO {
 		    int nbLignes = pst.executeUpdate();
 		    f.setId(recupererClefPrimaireAutoIncrementee(pst));
 		    System.out.println("nb ligne(s) ajoutee(s) en base:" + nbLignes);
+		    cn.commit();//VALIDER la transaction
+		    //cn.rollback(); //Test temporaire (Annulation)
 		    pst.close(); //fermetures dans l'ordre inverse des ouvertures/créations
 		} catch (SQLException e) {
 			e.printStackTrace();
+			try {cn.rollback();	} catch (SQLException e1) {	e1.printStackTrace();}
 		}finally{
 			closeCn(cn);//ferme la connexion ou bien la rend dans un pool de connexions recyclables
 		}
