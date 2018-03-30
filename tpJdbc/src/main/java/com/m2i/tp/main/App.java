@@ -1,14 +1,24 @@
 package com.m2i.tp.main;
 
+import java.util.Date;
 import java.util.List;
-import java.util.Scanner;
 
 import com.m2i.tp.dao.DepartementDaoJdbc;
+import com.m2i.tp.dao.FilmDaoJdbc;
 import com.m2i.tp.entity.Departement;
+import com.m2i.tp.entity.Film;
 
 public class App {
-
+	
 	public static void main(String[] args) {
+		System.out.println("demarrage appli tpJdbc / partie 2 (film)...");
+        FilmDaoJdbc dao = new FilmDaoJdbc();
+        Film nouveauFilm = new Film(null,"film tres recent", new Date());
+        Film filmInsereEnBase = dao.ajouterFilm(nouveauFilm);
+        System.out.println("filmInsereEnBase="+filmInsereEnBase.toString());
+	}
+
+	public static void main1(String[] args) {
 		System.out.println("demarrage appli tpJdbc ...");
         DepartementDaoJdbc dao = new DepartementDaoJdbc();
         
