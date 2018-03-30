@@ -3,6 +3,7 @@ package com.m2i.tp.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
@@ -34,6 +35,20 @@ public class FilmDaoJdbc implements FilmDAO {
 	static void closeCn(Connection cn){
 		try { cn.close(); } catch (SQLException e) {e.printStackTrace();}
 	}
+	
+	//cette methode doit etre appelee juste apres pst.executeUpdate();
+	static Integer recupererClefPrimaireAutoIncrementee(PreparedStatement pst){
+		Integer pk=null;
+		try {
+			ResultSet rsKeys = pst.getGeneratedKeys();
+			if(rsKeys.next()){
+				pk=rsKeys.getInt(1);//pour ici une clef primaire sur une seule colonne de type Integer
+			} rsKeys.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return pk;
+	}
 
 	@Override
 	public Film ajouterFilm(Film f) {
@@ -41,12 +56,12 @@ public class FilmDaoJdbc implements FilmDAO {
 		try {
 			cn = this.etablirConnexion();
 			//chaque ? correspond à un paramètre variable .
-			String reqSql = "INSERT INTO Film(titre, dateSortie) "
-					    + " VALUES(?,?)";
+			String reqSql = "INSERT INTO Film(titre, dateSortie) VALUES(?,?)";
 			PreparedStatement pst = cn.prepareStatement(reqSql);  
 		    pst.setString(1, f.getTitre());//le 1 correspond au numéro d'ordre du ? qui sera remplacé
 		    pst.setDate(2, new java.sql.Date(f.getDateSortie().getTime()));
 		    int nbLignes = pst.executeUpdate();
+		    f.setId(recupererClefPrimaireAutoIncrementee(pst));
 		    System.out.println("nb ligne(s) ajoutee(s) en base:" + nbLignes);
 		    pst.close(); //fermetures dans l'ordre inverse des ouvertures/créations
 		} catch (SQLException e) {
