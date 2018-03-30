@@ -17,7 +17,7 @@ import com.m2i.tp.entity.Departement;
  */
 public interface DepartementDAO {
 	public List<Departement> rechercherTousDepartements();
-	public List<Departement> departementsSelonRegion(int numRegion);
+	public List<Departement> departementsSelonRegion(String numRegion);
 	public Departement departementSelonNumero(String numDep);
 	
 	public void ajouterDepartement(Departement dep);
